@@ -20,7 +20,7 @@ public class While {
             }
         }
 
-        System.out.println("Média de valiações é " + media /totalDeNotas);
+        System.out.println("Média de avaliações é " + media /totalDeNotas);
 
     }
 

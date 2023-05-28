@@ -2,8 +2,15 @@ package criando.primeira.aplicacao;
 
 import java.util.Scanner;
 
+/*O que devo fazer:
+Inicializar dados do cliente
+Menu de opções
+Visualização do saldo
+Enviar valor
+Receber valor*/
+
 public class DesafioContaBancaria {
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
         Scanner leitor = new Scanner(System.in);
 
@@ -16,58 +23,44 @@ public class DesafioContaBancaria {
         System.out.print("Tipo de conta: ");
         String tipoDeConta = leitor.nextLine();
 
-        System.out.print("Saldo inicial: ");
-        double saldo = leitor.nextDouble();
+        double saldo = 5000.00;
 
         System.out.println("**********************");
-
-        String operacoes = """
-                Operações:
+        int opcao = 0;
+        String menu = """
+                Digite a operação desejada:
                 1 - Consultar saldos
-                2 - Receber valor
-                3 - Transferir valor
+                2 - Transferir valor
+                3 - Receber valor
                 4 - Sair
                 """;
-        System.out.println(operacoes);
+        while (opcao != 4) {
+            System.out.println(menu);
+            opcao = leitor.nextInt();
 
-        /*System.out.println("Operações: ");
-        System.out.println("1 - Consultar saldos");
+            if (opcao == 1) {
+                System.out.println("Seu saldo é " + saldo);
+            } else if (opcao == 2) {
+                System.out.println("Qual valor deseja transferir?");
+                double valor = leitor.nextDouble();
+                if (valor > saldo) {
+                    System.out.println("Não saldo suficiente para realizar a transferência");
+                } else {
+                    saldo -= valor;
+                    System.out.println("Saldo atual " + saldo);
+                }
+            } else if (opcao == 3) {
+                System.out.println("Valor recebido");
+                double valor = leitor.nextDouble();
+                saldo += valor;
+                System.out.println("Saldo atual " + saldo);
+            } else if (opcao != 4) {
+                System.out.println("opção inválida");
+            } else {
+                System.out.println("A opção sair foi selecionada, sua transação foi encerrada. Obrigado!");
 
-        System.out.println("2 - Receber valor");
-
-        System.out.println("3 - Transferir valor");
-
-        System.out.println("4 - Sair");*/ //otimizando linhas de código
-
-        System.out.println("Digite a operação desejada:");
-        int numeroDigitado = leitor.nextInt();
-
-        if(numeroDigitado == 1){
-            System.out.println("Consultar saldos");
-        } else if(numeroDigitado ==2){
-            System.out.println("Receber valor");
-        } else if(numeroDigitado == 3){
-            System.out.println("Tranferir valor");
-        } else if (numeroDigitado ==4){
-            System.out.println("Sair");
-        } else {
-            System.out.println("Número inválido!");
+            }
         }
-
-              /* if(numeroDigitado == 1){
-            System.out.println("Consultar saldos");
-        } else if(numeroDigitado ==2){
-            System.out.println("Receber valor");
-        } else if(numeroDigitado == 3){
-            System.out.println("Tranferir valor");
-        } else if (numeroDigitado ==4){
-            System.out.println("Sair");
-        } else {
-            System.out.println("Número inválido!");
-        }*/
-
-
-
 
     }
 

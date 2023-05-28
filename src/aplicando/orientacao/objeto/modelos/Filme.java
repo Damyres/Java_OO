@@ -1,25 +1,29 @@
-package aplicando.orientacao.objeto.trabalhando.listas;
+package aplicando.orientacao.objeto.modelos;
 
 public class Filme {
-    String nome;
+    public String nome;
     int anDeLancamento;
     boolean incluindoNoPlano;
-    double somaDasAvaliacoes;
-    int totalDeAvaliacao;
+    private double somaDasAvaliacoes;
+    private int totalDeAvaliacao;
     int duracaoEmMinuto;
 
-    void imprimiFichaTecnica(){
+    public void imprimiFichaTecnica(){
         System.out.println("Filme: " + nome);
         System.out.println("Ano de lançamento: " + anDeLancamento);
         System.out.println("Tempo: "  + duracaoEmMinuto + " minutos. ");
     }
 
-    void avaliaFilme(double nota){
+    public void avaliaFilme(double nota){
         somaDasAvaliacoes +=nota;
         totalDeAvaliacao++;
     }
-    double mediaDasAvaliacoes (){
+    public double mediaDasAvaliacoes (){
         return somaDasAvaliacoes/totalDeAvaliacao;
+    }
+
+    public int getTotalDeAvaliacao(){
+        return totalDeAvaliacao;
     }
 
 }
